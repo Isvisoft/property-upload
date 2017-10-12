@@ -48,7 +48,7 @@ class Upload {
 						foreach ($result as $r) {
 							$aux = $aux . $property['directory'] . '/' . $r->name . ';';
 						}
-						return $aux;
+						return substr($aux,0,-1);
 					} else {
 						return $property['directory'] . '/' . $result->name;
 					}
