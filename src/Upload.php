@@ -25,7 +25,7 @@ class Upload {
 	 */
 	public function set($bean, $property, $new_value) {
 
-		if ( isset( $_FILES[ $property['name'] ] ) && $_FILES[ $property['name'] ]['size'] > 0 ) {
+		if ( isset( $_FILES[ $property['name'] ] ) && $_FILES[ $property['name'] ]['size'] > 0 && $_FILES[ $property['name'] ][0]['size'] > 0 ) {
 
 			$uploadHandler = new UploadHandler( APP_PATH.$property['directory'] );
 
@@ -43,7 +43,14 @@ class Upload {
 
 					$result->confirm(); // this will remove the .lock file
 					$this->delete($bean, $property); // Delete old file
-					return $property['directory'] . '/' . $result->name;
+					if (count($result) > 1) {
+						foreach ($result as $r) {
+							$aux = $aux . $property['directory'] . '/' . $r->name . ';';
+						}
+						return $aux;
+					} else {
+						return $property['directory'] . '/' . $result->name;
+					}
 
 				} catch (\Exception $e) {
 
