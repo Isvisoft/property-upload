@@ -1,6 +1,6 @@
 [<img src="https://cdn.rawgit.com/lutsen/lagan/master/lagan-logo.svg" width="100" alt="Lagan">](https://github.com/lutsen/lagan)
 
-Lagan Upload Property Controller
+Lagan Upload Property BARBARIE
 ================================
 
 Controller for the Lagan upload property, built with the [Sirius upload handler library](https://github.com/siriusphp/upload). Lets the user upload a file.
